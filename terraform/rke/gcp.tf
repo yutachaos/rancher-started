@@ -38,7 +38,7 @@ resource "google_compute_network" "network" {
 
 resource "google_compute_subnetwork" "development" {
   name          = "development"
-  ip_cidr_range = "10.30.0.0/16"
+  ip_cidr_range = "192.168.0.0/16"
   network       = "${google_compute_network.network.name}"
   description   = "development"
   region        = "${local.region}"
