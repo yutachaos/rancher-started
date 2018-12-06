@@ -13,3 +13,6 @@ output "cluster_ca_certificate" {
 }
 */
 
+output "ingress-address" {
+  value = "${google_compute_address.ip.address}"
+}

@@ -28,6 +28,7 @@ resource "google_compute_firewall" "development" {
     protocol = "icmp"
   }
 
+
   // @see https://rancher.com/docs/rancher/v2.x/en/installation/references/#rancher-nodes
   allow {
     protocol = "tcp"
@@ -69,4 +70,8 @@ resource "google_container_cluster" "primary" {
       "https://www.googleapis.com/auth/monitoring",
     ]
   }
+}
+
+resource "google_compute_address" "ip" {
+  name = "rancher-ingress-address"
 }
