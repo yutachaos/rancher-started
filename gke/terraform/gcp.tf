@@ -28,7 +28,6 @@ resource "google_compute_firewall" "development" {
     protocol = "icmp"
   }
 
-
   // @see https://rancher.com/docs/rancher/v2.x/en/installation/references/#rancher-nodes
   allow {
     protocol = "tcp"
@@ -40,7 +39,7 @@ resource "google_compute_firewall" "development" {
     ports    = ["30000-32767"]
   }
 
-  source_ranges = ["0.0.0.0/0"]
+  source_ranges = ["${var.user_ip_range}"]
   target_tags   = ["development"]
 }
 

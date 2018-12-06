@@ -6,3 +6,4 @@ provider "google" {
 
 variable "cluster_username" {}
 variable "cluster_password" {}
+variable "user_ip_range" {}
