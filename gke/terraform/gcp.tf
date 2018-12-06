@@ -40,7 +40,6 @@ resource "google_compute_firewall" "development" {
   }
 
   source_ranges = ["${var.user_ip_range}"]
-  target_tags   = ["development"]
 }
 
 resource "google_container_cluster" "primary" {
@@ -68,9 +67,7 @@ resource "google_container_cluster" "primary" {
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
     ]
-  }
-}
 
-resource "google_compute_address" "ip" {
-  name = "rancher-ingress-address"
+    tags = ["development"]
+  }
 }

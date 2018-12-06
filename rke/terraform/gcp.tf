@@ -65,7 +65,6 @@ resource "google_compute_firewall" "development" {
   }
 
   source_ranges = ["${var.user_ip_range}"]
-  target_tags   = ["development"]
 }
 
 resource "google_compute_instance" "rke-host" {
