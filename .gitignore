@@ -5,3 +5,5 @@ account.json
 .DS_Store
 terraform.tfstate
 terraform.tfstate.backup
+config-map*
+kubeconfig*
