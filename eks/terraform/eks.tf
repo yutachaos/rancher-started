@@ -12,6 +12,7 @@ module "eks" {
 
   workers_group_defaults = {
     instance_type        = "${var.instance_type}"
+    public_ip            = "${var.public_ip}"
     spot_price           = "${var.spot_price}"
     asg_desired_capacity = "${var.asg_desired_capacity}"
     asg_max_size         = "${var.asg_max_size}"
