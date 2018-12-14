@@ -38,7 +38,7 @@ resource "google_compute_network" "network" {
 
 resource "google_compute_subnetwork" "development" {
   name          = "development"
-  ip_cidr_range = "10.30.0.0/16"
+  ip_cidr_range = "192.168.0.0/16"
   network       = "${google_compute_network.network.name}"
   description   = "development"
   region        = "${local.region}"
@@ -64,8 +64,7 @@ resource "google_compute_firewall" "development" {
     ports    = ["30000-32767"]
   }
 
-  source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["development"]
+  source_ranges = ["${var.user_ip_range}"]
 }
 
 resource "google_compute_instance" "rke-host" {
