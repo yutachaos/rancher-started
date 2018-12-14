@@ -57,6 +57,15 @@ resource "google_container_cluster" "primary" {
     password = "${var.cluster_password}"
   }
 
+  master_authorized_networks_config {
+    cidr_blocks = [
+      {
+        cidr_block   = "${var.user_ip_range}"
+        display_name = "myip"
+      },
+    ]
+  }
+
   node_config {
     image_type   = "${local.image_type}"
     machine_type = "${local.machine_type}"
