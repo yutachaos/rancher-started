@@ -4,7 +4,7 @@ resource "tls_private_key" "node-key" {
 }
 
 resource "azurerm_resource_group" "cluster_resource_group" {
-  name     = "${var.location}"
+  name     = "${var.resource_group_name}"
   location = "${var.location}"
 }
 
@@ -16,7 +16,7 @@ resource "azurerm_log_analytics_workspace" "log_workspace" {
 }
 
 resource "azurerm_kubernetes_cluster" "cluster" {
-  name                = "test-cluster"
+  name                = "${var.cluster_name}"
   location            = "${azurerm_resource_group.cluster_resource_group.location}"
   resource_group_name = "${azurerm_resource_group.cluster_resource_group.name}"
   dns_prefix          = "aks-test"

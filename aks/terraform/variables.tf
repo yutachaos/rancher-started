@@ -2,6 +2,14 @@ variable "client_id" {}
 
 variable "client_secret" {}
 
+variable "resource_group_name" {
+  default = "test-cluster"
+}
+
+variable "cluster_name" {
+  default = "test-cluster"
+}
+
 # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing
 variable log_analytics_workspace_sku {
   default = "PerGB2018"
